@@ -1,7 +1,7 @@
 /**
- * Dark theme styles for ChatbotWidget
+ * Black and red theme styles for ChatbotWidget
  *
- * Provides sleek, minimalistic dark theme consistent with auth pages.
+ * Provides sleek, dark theme with black and red accents matching the book theme.
  */
 
 /* Floating button (collapsed state) */
@@ -9,22 +9,29 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: linear-gradient(135deg, #7877c6 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
   color: white;
   padding: 1rem 1.5rem;
   border-radius: 50px;
-  box-shadow: 0 4px 20px rgba(120, 119, 198, 0.4);
+  box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4);
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
   z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
 }
 
 .floatingButton:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 24px rgba(120, 119, 198, 0.6);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 24px rgba(211, 47, 47, 0.6);
 }
 
 .chatIcon {
@@ -45,19 +52,31 @@
   max-width: calc(100vw - 4rem);
   height: 600px;
   max-height: calc(100vh - 4rem);
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid #d32f2f;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   z-index: 1000;
   overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Header */
 .chatbotHeader {
-  background: linear-gradient(135deg, #7877c6 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
   color: white;
   padding: 1rem;
   display: flex;
@@ -69,6 +88,10 @@
   margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
+  background: linear-gradient(to right, #ff6b6b, #d32f2f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .headerButtons {
@@ -89,12 +112,13 @@
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
 
 .clearButton:hover,
 .closeButton:hover {
   background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 /* Messages container */
@@ -105,12 +129,12 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #0a0a0a;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 /* Scrollbar styling */
 .messagesContainer::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .messagesContainer::-webkit-scrollbar-track {
@@ -118,12 +142,12 @@
 }
 
 .messagesContainer::-webkit-scrollbar-thumb {
-  background: #3a3a3a;
-  border-radius: 3px;
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  border-radius: 4px;
 }
 
 .messagesContainer::-webkit-scrollbar-thumb:hover {
-  background: #4a4a4a;
+  background: linear-gradient(135deg, #b71c1c, #a00000);
 }
 
 /* Empty state */
@@ -131,6 +155,9 @@
   text-align: center;
   color: #a0a0a0;
   padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
 }
 
 .emptyState p {
@@ -140,11 +167,17 @@
 
 /* Messages */
 .message {
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
   max-width: 85%;
   word-wrap: break-word;
   animation: slideIn 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.message:hover {
+  transform: translateY(-2px);
 }
 
 @keyframes slideIn {
@@ -159,17 +192,17 @@
 }
 
 .message.user {
-  background-color: #2c5aa0;
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
   color: white;
   align-self: flex-end;
   margin-left: auto;
 }
 
 .message.assistant {
-  background-color: #2a2a2a;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   color: #e0e0e0;
   align-self: flex-start;
-  border: 1px solid #3a3a3a;
+  border: 1px solid #d32f2f;
 }
 
 .messageContent {
@@ -179,11 +212,12 @@
 
 .selectionBadge {
   margin-top: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  background: rgba(120, 119, 198, 0.2);
-  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  border-radius: 12px;
   font-size: 0.75rem;
-  color: #9b9acf;
+  color: white;
+  display: inline-block;
 }
 
 /* Typing indicator */
@@ -191,12 +225,13 @@
   display: flex;
   gap: 0.25rem;
   padding: 0.5rem;
+  justify-content: center;
 }
 
 .typingIndicator span {
-  width: 8px;
-  height: 8px;
-  background-color: #666;
+  width: 10px;
+  height: 10px;
+  background-color: #d32f2f;
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out;
 }
@@ -220,39 +255,41 @@
 
 /* Error message */
 .errorMessage {
-  background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #f87171;
-  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #2a1a1a 0%, #3a2a2a 100%);
+  border: 1px solid #d32f2f;
+  color: #ff6b6b;
+  padding: 1rem;
   border-radius: 8px;
   font-size: 0.875rem;
+  align-self: center;
+  max-width: 90%;
 }
 
 /* Input form */
 .inputForm {
   padding: 1rem;
-  background-color: #1a1a1a;
-  border-top: 1px solid #2a2a2a;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-top: 1px solid #d32f2f;
   display: flex;
   gap: 0.5rem;
 }
 
 .input {
   flex: 1;
-  background-color: #252525;
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
   border: 1px solid #3a3a3a;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #e0e0e0;
   font-size: 0.875rem;
-  padding: 0.75rem 1rem;
-  transition: all 0.2s ease;
+  padding: 0.8rem 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .input:focus {
   outline: none;
-  border-color: #7877c6;
-  box-shadow: 0 0 0 3px rgba(120, 119, 198, 0.1);
-  background-color: #2a2a2a;
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+  background: linear-gradient(135deg, #252525 0%, #2a2a2a 100%);
 }
 
 .input:disabled {
@@ -265,28 +302,32 @@
 }
 
 .sendButton {
-  background: linear-gradient(135deg, #7877c6 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
   border: none;
   color: white;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
 }
 
 .sendButton:hover:not(:disabled) {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(120, 119, 198, 0.4);
+  box-shadow: 0 6px 15px rgba(211, 47, 47, 0.4);
+  background: linear-gradient(135deg, #b71c1c 0%, #a00000 100%);
 }
 
 .sendButton:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Responsive design */
@@ -308,7 +349,9 @@
 @media (prefers-reduced-motion: reduce) {
   .message,
   .floatingButton,
-  .sendButton {
+  .sendButton,
+  .clearButton,
+  .closeButton {
     animation: none;
     transition: none;
   }
@@ -316,14 +359,14 @@
 
 /* Selection Mode Indicator */
 .selectionIndicator {
-  background-color: rgba(120, 119, 198, 0.1);
-  border-bottom: 1px solid #2a2a2a;
-  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #2a1a1a 0%, #3a2a2a 100%);
+  border-bottom: 1px solid #d32f2f;
+  padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.875rem;
-  color: #c4c3e0;
+  color: #e0e0e0;
 }
 
 .selectionInfo {
@@ -337,26 +380,29 @@
 
 .selectionIcon {
   font-size: 1rem;
+  color: #ff6b6b;
 }
 
 .selectionText em {
   font-style: italic;
-  opacity: 0.8;
+  color: #ff6b6b;
 }
 
 .clearSelectionButton {
-  background: none;
-  border: none;
-  color: #9b9acf;
+  background: rgba(211, 47, 47, 0.2);
+  border: 1px solid #d32f2f;
+  color: #ff6b6b;
   font-size: 1.25rem;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.3rem;
   line-height: 1;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .clearSelectionButton:hover {
-  background-color: rgba(120, 119, 198, 0.15);
-  color: #e0e0e0;
+  background: rgba(211, 47, 47, 0.3);
+  color: white;
+  transform: scale(1.1);
 }
 

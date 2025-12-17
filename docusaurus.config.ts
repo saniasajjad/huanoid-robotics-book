@@ -10,11 +10,11 @@ const config = {
   // Set the production url of your site here
   url: 'https://saniasajjad.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/humanoid-robotics-book',
+  baseUrl: '/huanoid-robotics-book',
 
   // GitHub pages deployment config.
   organizationName: 'saniasajjad', // Usually your GitHub org/user name.
-  projectName: 'humanoid-robots-book', // Usually your repo name.
+  projectName: 'huanoid-robotics-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -41,7 +41,7 @@ const config = {
         docs: {
           routeBasePath: '/', // Serve docs from the root
           sidebarPath: require.resolve('./sidebars.ts'),
-          editUrl: "https://github.com/saniasajjad/humanoid-robotics-book/tree/main",
+          editUrl: "https://github.com/saniasajjad/huanoid-robotics-book/tree/main",
           // Removed invalid "markdown" option
           // Removed homePageId as it's deprecated
         },

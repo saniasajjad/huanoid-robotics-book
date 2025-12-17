@@ -44,7 +44,7 @@ export function CustomHero() {
         <div className={styles.buttons}>
           <Link
             className={`button button--primary button--lg ${styles.heroButton}`}
-            to="/humanoid-robotics-ebook/module1-ros2/chapter1-introduction">
+            to="/module1-ros2/chapter1-introduction">
             Start Reading
           </Link>
           {/* T087: Convert Link to button with onClick handler */}
